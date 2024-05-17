@@ -1,0 +1,18 @@
+:root {
+    --wf-base800: rgba(45, 54, 72, 1);
+    --wf-basewhite: rgba(255, 255, 255, 1);
+    --wf-base400: rgba(203, 210, 224, 1);
+    --WF-body-body-medium-font-family: "Inter", Helvetica;
+    --WF-body-body-medium-font-weight: 400;
+    --WF-body-body-medium-font-size: 16px;
+    --WF-body-body-medium-letter-spacing: -0.16px;
+    --WF-body-body-medium-line-height: 150%;
+    --WF-body-body-medium-font-style: normal;
+    --WF-buttons-button-medium-font-family: "Inter", Helvetica;
+    --WF-buttons-button-medium-font-weight: 700;
+    --WF-buttons-button-medium-font-size: 16px;
+    --WF-buttons-button-medium-letter-spacing: -0.16px;
+    --WF-buttons-button-medium-line-height: 24px;
+    --WF-buttons-button-medium-font-style: normal;
+  }
+  

@@ -1,0 +1,186 @@
+.pacotes {
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .pacotes .div {
+    background-image: url(./img/pacotes.png);
+    background-size: cover;
+    background-position: 50% 50%;
+    width: 1440px;
+    height: 1024px;
+    position: relative;
+  }
+  
+  .pacotes .WF-drop-down {
+    display: flex;
+    flex-direction: column;
+    width: 581px;
+    height: 45px;
+    align-items: flex-start;
+    position: absolute;
+    top: 221px;
+    left: 341px;
+  }
+  
+  .pacotes .drop-down-base {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    position: relative;
+    align-self: stretch;
+    width: 100%;
+    flex: 0 0 auto;
+    margin-bottom: -3px;
+  }
+  
+  .pacotes .text-input {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    align-self: stretch;
+    width: 100%;
+    flex: 0 0 auto;
+    background-color: var(--wf-basewhite);
+    border-radius: 6px;
+    overflow: hidden;
+    border: 2px solid;
+    border-color: var(--wf-base400);
+  }
+  
+  .pacotes .label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 12px 12px 16px;
+    position: relative;
+    align-self: stretch;
+    width: 100%;
+    flex: 0 0 auto;
+  }
+  
+  .pacotes .value {
+    margin-top: -1px;
+    position: relative;
+    flex: 1;
+    font-family: var(--WF-body-body-medium-font-family);
+    font-weight: var(--WF-body-body-medium-font-weight);
+    color: var(--wf-base800);
+    font-size: var(--WF-body-body-medium-font-size);
+    letter-spacing: var(--WF-body-body-medium-letter-spacing);
+    line-height: var(--WF-body-body-medium-line-height);
+    font-style: var(--WF-body-body-medium-font-style);
+  }
+  
+  .pacotes .icon {
+    position: relative;
+    width: 24px;
+    height: 24px;
+  }
+  
+  .pacotes .text-wrapper {
+    position: absolute;
+    width: 900px;
+    height: 150px;
+    top: 6px;
+    left: 269px;
+    text-shadow: 0px 4px 4px #00000040;
+    -webkit-text-stroke: 1px #000000;
+    font-family: "Imprint MT Shadow-Regular", Helvetica;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 96px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .pacotes .WF-button {
+    all: unset;
+    box-sizing: border-box;
+    width: 109px;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 20px;
+    left: 1194px;
+    background-color: var(--wf-base800);
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 222px;
+  }
+  
+  .pacotes .label-2 {
+    position: relative;
+    width: fit-content;
+    margin-top: -1px;
+    margin-left: -1.5px;
+    font-family: var(--WF-buttons-button-medium-font-family);
+    font-weight: var(--WF-buttons-button-medium-font-weight);
+    color: var(--wf-basewhite);
+    font-size: var(--WF-buttons-button-medium-font-size);
+    letter-spacing: var(--WF-buttons-button-medium-letter-spacing);
+    line-height: var(--WF-buttons-button-medium-line-height);
+    white-space: nowrap;
+    font-style: var(--WF-buttons-button-medium-font-style);
+  }
+  
+  .pacotes .icon-right-wrapper {
+    position: relative;
+    width: 12px;
+    height: 20px;
+    margin-right: -1.5px;
+  }
+  
+  .pacotes .icon-right {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 0;
+    left: 0;
+  }
+  
+  .pacotes .WF-option {
+    width: 215px;
+    left: 952px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 222px;
+  }
+  
+  .pacotes .WF-list-options {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 12px 12px 12px 16px;
+    position: relative;
+    flex: 1;
+    flex-grow: 1;
+    background-color: var(--wf-basewhite);
+    border-radius: 6px;
+    border: 2px solid;
+    border-color: var(--wf-base400);
+  }
+  
+  .pacotes .text-wrapper-2 {
+    margin-top: -2px;
+    position: relative;
+    flex: 1;
+    font-family: var(--WF-body-body-medium-font-family);
+    font-weight: var(--WF-body-body-medium-font-weight);
+    color: var(--wf-base800);
+    font-size: var(--WF-body-body-medium-font-size);
+    letter-spacing: var(--WF-body-body-medium-letter-spacing);
+    line-height: var(--WF-body-body-medium-line-height);
+    font-style: var(--WF-body-body-medium-font-style);
+  }
+  
