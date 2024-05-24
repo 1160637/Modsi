@@ -1,0 +1,337 @@
+<style>
+  .main-container {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    position: relative;
+    min-height: 1024px;
+    justify-content: center;
+  }
+
+  .bg-image {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .content-wrapper {
+    position: relative;
+    background-color: rgba(170, 170, 170, 0.5);
+    display: flex;
+    width: 100%;
+    padding: 20px 0;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .media-query {
+    @media (max-width: 991px) {
+
+      .content-wrapper,
+      .info-container,
+      .hotel-column,
+      .package-column,
+      .cruise-column,
+      .footer-container {
+        max-width: 100%;
+      }
+
+      .title,
+      .hotel-title,
+      .package-title,
+      .cruise-title,
+      .footer-desc {
+        font-size: 40px;
+        white-space: initial;
+      }
+
+      .wrapper {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+
+      .hotel-column,
+      .package-column,
+      .cruise-column {
+        width: 100%;
+      }
+
+      .hotel-wrapper,
+      .package-wrapper,
+      .cruise-wrapper {
+        margin-top: 40px;
+      }
+    }
+  }
+
+  .info-container {
+    display: flex;
+    width: 100%;
+    max-width: 1149px;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .login-section {
+    align-self: end;
+    display: flex;
+    gap: 6px;
+    font-size: 20px;
+    color: #000;
+    font-weight: 400;
+    white-space: nowrap;
+  }
+
+  .login-text {
+    font-family: Inter, sans-serif;
+    margin: auto 0;
+  }
+
+  .profile-img {
+    aspect-ratio: 1;
+    object-fit: auto;
+    object-position: center;
+    width: 30px;
+    border-radius: 50%;
+  }
+
+  .title {
+    text-shadow: 5px 5px 4px rgba(48, 80, 192, 0.5);
+    -webkit-text-stroke-width: 2;
+    -webkit-text-stroke-color: #000;
+    background: linear-gradient(90deg, #00105c 0%, #3050c0 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border: 2px solid rgba(0, 0, 0, 1);
+    font: 700 96px SansSerif, sans-serif;
+  }
+
+  .search-section {
+    margin-top: 128px;
+    max-width: 1360px;
+    padding: 0 20px;
+  }
+
+  .wrapper {
+    gap: 20px;
+    display: flex;
+  }
+
+  .hotel-column {
+    display: flex;
+    flex-direction: column;
+    width: 33%;
+  }
+
+  .hotel-wrapper {
+    display: flex;
+    flex-direction: column;
+    font-size: 48px;
+    color: #fff;
+    font-weight: 500;
+    white-space: nowrap;
+    text-align: center;
+  }
+
+  .hotel-title {
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    -webkit-text-stroke-width: 3;
+    -webkit-text-stroke-color: #00105c;
+    font-family: Inter, sans-serif;
+    font-style: italic;
+    border: 3px solid rgba(0, 16, 92, 1);
+  }
+
+  .hotel-img {
+    aspect-ratio: 1.18;
+    object-fit: auto;
+    object-position: center;
+    width: 100%;
+    box-shadow: 10px 10px 4px 0px rgba(48, 80, 192, 0.5);
+    border: 2px solid rgba(0, 16, 92, 1);
+  }
+
+  .package-column {
+    display: flex;
+    margin-left: 20px;
+  }
+
+  .package-wrapper {
+    display: flex;
+    flex-direction: column;
+    font-size: 48px;
+    color: #fff;
+    white-space: nowrap;
+    text-align: center;
+  }
+
+  .package-title {
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    -webkit-text-stroke-width: 3;
+    -webkit-text-stroke-color: #00105c;
+    font-family: Inter, sans-serif;
+    font-style: italic;
+    border: 3px solid rgba(0, 16, 92, 1);
+  }
+
+  .package-img {
+    aspect-ratio: 1.18;
+    object-fit: auto;
+    object-position: center;
+    width: 100%;
+    box-shadow: 10px 10px 4px 0px rgba(48, 80, 192, 0.5);
+    border: 2px solid rgba(0, 16, 92, 1);
+  }
+
+  .cruise-column {
+    display: flex;
+    margin-left: 20px;
+  }
+
+  .cruise-wrapper {
+    display: flex;
+    flex-direction: column;
+    font-size: 48px;
+    color: #fff;
+    white-space: nowrap;
+    text-align: center;
+  }
+
+  .cruise-title {
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    -webkit-text-stroke-width: 3;
+    -webkit-text-stroke-color: #00105c;
+    font-family: Inter, sans-serif;
+    font-style: italic;
+    border: 3px solid rgba(0, 16, 92, 1);
+  }
+
+  .cruise-img {
+    aspect-ratio: 1.18;
+    object-fit: auto;
+    object-position: center;
+    width: 100%;
+    box-shadow: 10px 10px 4px 0px rgba(48, 80, 192, 0.5);
+    border: 2px solid rgba(0, 16, 92, 1);
+  }
+
+  .footer {
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(48, 80, 192, 0.5);
+    display: flex;
+    margin-top: 76px;
+    width: 100%;
+    line-height: 150%;
+    padding: 25px 60px;
+  }
+
+  .footer-container {
+    display: flex;
+    max-width: 1232px;
+    flex-direction: column;
+  }
+
+  .logo {
+    font-feature-settings: "calt" off;
+    border-radius: 4px;
+    background-color: var(--WF-Base-800, #2d3648);
+    color: var(--WF-Base-White, #fff);
+    white-space: nowrap;
+    padding: 12px 40px;
+    font: 700 16px Inter, sans-serif;
+  }
+
+  .footer-desc {
+    justify-content: space-between;
+    display: flex;
+    margin-top: 32px;
+    width: 100%;
+    gap: 20px;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 400;
+  }
+
+  .footer-copyright {
+    font-feature-settings: "calt" off;
+    font-family: Inter, sans-serif;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .link {
+    font-feature-settings: "calt" off;
+    font-family: Inter, sans-serif;
+  }
+</style>
+
+<main class="main-container">
+  <img loading="lazy"
+    src="https://cdn.builder.io/api/v1/image/assets/TEMP/feea816bef340009d537fd7bfd6a7a5719a69b579949c2618d6e960fe8b3ba79?apiKey=10427ddf605b4aa18280f97637732781&"
+    alt="" class="bg-image" />
+  <section class="content-wrapper">
+    <div class="info-container">
+      <div class="login-section">
+        <div class="login-text">Login</div>
+        <img loading="lazy"
+          src="https://cdn.builder.io/api/v1/image/assets/TEMP/6e757ad13d1b3950543c4b55cb05bdac96fa2d4a78cca128d54cb6b766e35d38?apiKey=10427ddf605b4aa18280f97637732781&"
+          alt="Profile" class="profile-img" />
+      </div>
+      <h1 class="title">Pior Site de Viagens do Mundo</h1>
+    </div>
+    <section class="search-section">
+      <div class="wrapper">
+        <div class="hotel-column">
+          <div class="hotel-wrapper">
+            <h2 class="hotel-title">Hotéis</h2>
+            <img loading="lazy"
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/37d1413df20244035d6e07bbcfb536e65e8be356fe77f808bdd13002aff9e4ca?apiKey=10427ddf605b4aa18280f97637732781&"
+              alt="Hotéis" class="hotel-img" />
+          </div>
+        </div>
+        <div class="package-column">
+          <div class="package-wrapper">
+            <h2 class="package-title">Pacotes</h2>
+            <img loading="lazy"
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/146d5dfbced849f191739da73e4585789f3f4559a16ea9da7affef5b7aaad0da?apiKey=10427ddf605b4aa18280f97637732781&"
+              alt="Pacotes" class="package-img" />
+          </div>
+        </div>
+        <div class="cruise-column">
+          <div class="cruise-wrapper">
+            <h2 class="cruise-title">Cruzeiros</h2>
+            <img loading="lazy"
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/88de5391361b3e2e03217d724c6d89dd9ec1a3ad46bb60675981ccdb55615459?apiKey=10427ddf605b4aa18280f97637732781&"
+              alt="Cruzeiros" class="cruise-img" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="logo">Logo</div>
+        <div class="footer-desc">
+          <div class="footer-copyright">
+            Copyright 2024 Pior agência de viagens do mundo.
+          </div>
+          <div class="footer-links">
+            <a href="#" class="link">Privacy Policy</a>
+            <a href="#" class="link">Terms & Conditions</a>
+            <a href="#" class="link">Cookie Policy</a>
+            <a href="#" class="link">Contact</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </section>
+</main>
