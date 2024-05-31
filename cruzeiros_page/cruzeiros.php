@@ -29,5 +29,15 @@
         </button>
       </div>
     </div>
+    <?php
+      if(!isset($_SESSION)) {
+        session_start();
+    }
+    ?>
+    <?php
+      Include('../database_tools/funcs.php');
+      LigaBD();
+      ListaCruzeiros(LigaBD());
+    ?>
   </body>
 </html>
