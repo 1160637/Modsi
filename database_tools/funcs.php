@@ -32,7 +32,6 @@ function ListaCruzeiros($conn)
     if($result->num_rows > 0)
     {
         print " <table> \n";
-
         $row = $result->fetch_assoc();
         print " <tr> \n";
         foreach ( $row as $name => $val )
@@ -59,6 +58,27 @@ function ListaCruzeiros($conn)
     print"\n";
 
     mysqli_close($conn);
+
+    //----------------------------------------------------------------------
+    // if ($result = $mysqli->query($query)) {
+    //     echo "<b> <center>Database Output</center> </b> <br> <br>";
+
+    //     /* fetch associative array */
+    //     while ($row = $result->fetch_assoc()) {
+    //         $field1name = $row["col1"];
+    //         $field2name = $row["col2"];
+    //         $field3name = $row["col3"];
+    //         $field4name = $row["col4"];
+    //         $field5name = $row["col5"];
+    //     }
+
+    //     echo '<b>'.$field1name.$field2name.'</b><br />';
+    //     echo $field5name.'<br />';
+    //     echo $field5name.'<br />';
+    //     echo $field5name;
+    //     /* free result set */
+    //     $result->free();
+    }
    
 }
 

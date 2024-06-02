@@ -7,7 +7,7 @@
   }
   
   .cruzeiros .div {
-    background-image: url(./img/cruzeiros.png);
+    background-image: url(../img/cruz_final_back.png);
     background-size: cover;
     background-position: 50% 50%;
     width: 1440px;
@@ -75,6 +75,7 @@
     letter-spacing: var(--WF-body-body-medium-letter-spacing);
     line-height: var(--WF-body-body-medium-line-height);
     font-style: var(--WF-body-body-medium-font-style);
+
   }
   
   .cruzeiros .icon {
@@ -184,3 +185,27 @@
     left: 0;
   }
   
+  .cruzeiros .table {
+    color: #404040;
+		font-size:10pt;
+		text-align: center;
+		background-color:   #932f15;
+  }
+
+  .cruzeiros .table-custom {
+    width: 100%; /* Adjust the width as needed */
+    border-collapse: collapse;
+    background-color: grey;
+    color: black;
+  }
+
+  .cruzeiros .table-custom th,
+  .cruzeiros .table-custom td {
+    border: 1px solid black; /* Adds border to the table cells */
+    padding: 8px; /* Adds padding to the table cells */
+    text-align: left; /* Aligns the text to the left */
+  }
+
+  .cruzeiros .table-custom th {
+    background-color: darkgrey; /* Slightly darker background for table headers */
+  }
