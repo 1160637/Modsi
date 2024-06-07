@@ -1,337 +1,471 @@
-<style>
-  .main-container {
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    overflow: hidden;
-    position: relative;
-    min-height: 1024px;
-    justify-content: center;
-  }
+<!DOCTYPE html>
+<html lang="en">
 
-  .bg-image {
-    position: absolute;
-    inset: 0;
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    object-position: center;
-  }
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Vollkorn:400,400i,600,700,900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="main_styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <title> Pior Agência de Viagens</title>
+</head>
 
-  .content-wrapper {
-    position: relative;
-    background-color: rgba(170, 170, 170, 0.5);
-    display: flex;
-    width: 100%;
-    padding: 20px 0;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .media-query {
-    @media (max-width: 991px) {
-
-      .content-wrapper,
-      .info-container,
-      .hotel-column,
-      .package-column,
-      .cruise-column,
-      .footer-container {
-        max-width: 100%;
-      }
-
-      .title,
-      .hotel-title,
-      .package-title,
-      .cruise-title,
-      .footer-desc {
-        font-size: 40px;
-        white-space: initial;
-      }
-
-      .wrapper {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0;
-      }
-
-      .hotel-column,
-      .package-column,
-      .cruise-column {
-        width: 100%;
-      }
-
-      .hotel-wrapper,
-      .package-wrapper,
-      .cruise-wrapper {
-        margin-top: 40px;
-      }
-    }
-  }
-
-  .info-container {
-    display: flex;
-    width: 100%;
-    max-width: 1149px;
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .login-section {
-    align-self: end;
-    display: flex;
-    gap: 6px;
-    font-size: 20px;
-    color: #000;
-    font-weight: 400;
-    white-space: nowrap;
-  }
-
-  .login-text {
-    font-family: Inter, sans-serif;
-    margin: auto 0;
-  }
-
-  .profile-img {
-    aspect-ratio: 1;
-    object-fit: auto;
-    object-position: center;
-    width: 30px;
-    border-radius: 50%;
-  }
-
-  .title {
-    text-shadow: 5px 5px 4px rgba(48, 80, 192, 0.5);
-    -webkit-text-stroke-width: 2;
-    -webkit-text-stroke-color: #000;
-    background: linear-gradient(90deg, #00105c 0%, #3050c0 50%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    border: 2px solid rgba(0, 0, 0, 1);
-    font: 700 96px SansSerif, sans-serif;
-  }
-
-  .search-section {
-    margin-top: 128px;
-    max-width: 1360px;
-    padding: 0 20px;
-  }
-
-  .wrapper {
-    gap: 20px;
-    display: flex;
-  }
-
-  .hotel-column {
-    display: flex;
-    flex-direction: column;
-    width: 33%;
-  }
-
-  .hotel-wrapper {
-    display: flex;
-    flex-direction: column;
-    font-size: 48px;
-    color: #fff;
-    font-weight: 500;
-    white-space: nowrap;
-    text-align: center;
-  }
-
-  .hotel-title {
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    -webkit-text-stroke-width: 3;
-    -webkit-text-stroke-color: #00105c;
-    font-family: Inter, sans-serif;
-    font-style: italic;
-    border: 3px solid rgba(0, 16, 92, 1);
-  }
-
-  .hotel-img {
-    aspect-ratio: 1.18;
-    object-fit: auto;
-    object-position: center;
-    width: 100%;
-    box-shadow: 10px 10px 4px 0px rgba(48, 80, 192, 0.5);
-    border: 2px solid rgba(0, 16, 92, 1);
-  }
-
-  .package-column {
-    display: flex;
-    margin-left: 20px;
-  }
-
-  .package-wrapper {
-    display: flex;
-    flex-direction: column;
-    font-size: 48px;
-    color: #fff;
-    white-space: nowrap;
-    text-align: center;
-  }
-
-  .package-title {
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    -webkit-text-stroke-width: 3;
-    -webkit-text-stroke-color: #00105c;
-    font-family: Inter, sans-serif;
-    font-style: italic;
-    border: 3px solid rgba(0, 16, 92, 1);
-  }
-
-  .package-img {
-    aspect-ratio: 1.18;
-    object-fit: auto;
-    object-position: center;
-    width: 100%;
-    box-shadow: 10px 10px 4px 0px rgba(48, 80, 192, 0.5);
-    border: 2px solid rgba(0, 16, 92, 1);
-  }
-
-  .cruise-column {
-    display: flex;
-    margin-left: 20px;
-  }
-
-  .cruise-wrapper {
-    display: flex;
-    flex-direction: column;
-    font-size: 48px;
-    color: #fff;
-    white-space: nowrap;
-    text-align: center;
-  }
-
-  .cruise-title {
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    -webkit-text-stroke-width: 3;
-    -webkit-text-stroke-color: #00105c;
-    font-family: Inter, sans-serif;
-    font-style: italic;
-    border: 3px solid rgba(0, 16, 92, 1);
-  }
-
-  .cruise-img {
-    aspect-ratio: 1.18;
-    object-fit: auto;
-    object-position: center;
-    width: 100%;
-    box-shadow: 10px 10px 4px 0px rgba(48, 80, 192, 0.5);
-    border: 2px solid rgba(0, 16, 92, 1);
-  }
-
-  .footer {
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(48, 80, 192, 0.5);
-    display: flex;
-    margin-top: 76px;
-    width: 100%;
-    line-height: 150%;
-    padding: 25px 60px;
-  }
-
-  .footer-container {
-    display: flex;
-    max-width: 1232px;
-    flex-direction: column;
-  }
-
-  .logo {
-    font-feature-settings: "calt" off;
-    border-radius: 4px;
-    background-color: var(--WF-Base-800, #2d3648);
-    color: var(--WF-Base-White, #fff);
-    white-space: nowrap;
-    padding: 12px 40px;
-    font: 700 16px Inter, sans-serif;
-  }
-
-  .footer-desc {
-    justify-content: space-between;
-    display: flex;
-    margin-top: 32px;
-    width: 100%;
-    gap: 20px;
-    font-size: 14px;
-    color: #fff;
-    font-weight: 400;
-  }
-
-  .footer-copyright {
-    font-feature-settings: "calt" off;
-    font-family: Inter, sans-serif;
-  }
-
-  .footer-links {
-    display: flex;
-    gap: 20px;
-    text-align: center;
-  }
-
-  .link {
-    font-feature-settings: "calt" off;
-    font-family: Inter, sans-serif;
-  }
-</style>
-
-<main class="main-container">
-  <img loading="lazy"
-    src="https://cdn.builder.io/api/v1/image/assets/TEMP/feea816bef340009d537fd7bfd6a7a5719a69b579949c2618d6e960fe8b3ba79?apiKey=10427ddf605b4aa18280f97637732781&"
-    alt="" class="bg-image" />
-  <section class="content-wrapper">
-    <div class="info-container">
-      <div class="login-section">
-        <div class="login-text">Login</div>
-        <img loading="lazy"
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/6e757ad13d1b3950543c4b55cb05bdac96fa2d4a78cca128d54cb6b766e35d38?apiKey=10427ddf605b4aa18280f97637732781&"
-          alt="Profile" class="profile-img" />
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header id="topico1" class="header center">
+      <!--navbar-->
+      <div class="navbar-wrapper">
+        <nav class="navbar">
+          <div class="navbar-logo">
+            <h1>
+              <span class="center">P</span>
+              <span class="center">A</span>
+              <span class="center">V</span>
+              <span class="center">P</span>
+              <span class="center">T</span>
+            </h1>
+          </div>
+          <ul class="nav-list">
+            <li class="nav-list-item dropdown-hover">
+              <a href="#" class="nav-list-link">Cliente <i class="fas fa-chevron-down"></i></a>
+              <ul class="nav-dropdown">
+                <li class="nav-dropdown-item">
+                  <a href="Pacotes.html" class="nav-dropdown-link-1">Pacotes</a>
+                  <a href="Pacotes.html" class="nav-dropdown-link-2">Combinação de voo e hotel num
+                    pacote em
+                    promoção</a>
+                </li>
+                <li class="nav-dropdown-item">
+                  <a href="Cruzeiros.html" class="nav-dropdown-link-1">Cruzeiros</a>
+                  <a href="Cruzeiros.html" class="nav-dropdown-link-2">Uma viagem relaxante por um
+                    cruzeiro</a>
+                </li>
+                <li class="nav-dropdown-item">
+                  <a href="Hoteis.html" class="nav-dropdown-link-1">Hoteis</a>
+                  <a href="Hoteis.html" class="nav-dropdown-link-2">A hospedagem ideal para a sua
+                    viagem</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-list-item dropdown-hover">
+              <a href="#" class="nav-list-link">Consulta<i class="fas fa-chevron-down"></i></a>
+              <ul class="nav-dropdown">
+                <li class=" nav-dropdown-item">
+                  <a href="reservas.html" class="nav-dropdown-link-1">Reservas</a>
+                  <a href="reservas.html" class="nav-dropdown-link-2">Dados sobre as reservas
+                    efetuadas</a>
+                </li>
+                <li class="nav-dropdown-item">
+                  <a href="dadospessoais.html" class="nav-dropdown-link-1">Dados Pessoais</a>
+                  <a href="dadospessoais.html" class="nav-dropdown-link-2">Lista dos dados
+                    pessoais</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <div class="navbar-buttons">
+            <button class="navbar-btn login-btn">Login</button>
+            <button class="navbar-btn signup-btn">Signup</button>
+          </div>
+        </nav>
       </div>
-      <h1 class="title">Pior Site de Viagens do Mundo</h1>
-    </div>
-    <section class="search-section">
-      <div class="wrapper">
-        <div class="hotel-column">
-          <div class="hotel-wrapper">
-            <h2 class="hotel-title">Hotéis</h2>
-            <img loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/37d1413df20244035d6e07bbcfb536e65e8be356fe77f808bdd13002aff9e4ca?apiKey=10427ddf605b4aa18280f97637732781&"
-              alt="Hotéis" class="hotel-img" />
+      <!--Fim da navbar-->
+      <div class="header-text">
+        <div class="heading">Pior Agencia de Viagens</div>
+        <p class="header-paragraph">Pacotes de viagens com estadia, Hoteis e Cruzeiros</p>
+      </div>
+    </header>
+    <!-- Secção1 -->
+    <section class="section-1">
+      <h1 class="section-1-heading">Os nossos serviços</h1>
+      <div class="services">
+        <div class="service">
+          <i class="fa-solid fa-plane"></i>
+          <h3 class="service-heading">Pacotes
+          </h3>
+          <p class="service-paragraph">Pacotes de viagens com estadia incluida</p>
+        </div>
+        <div class="services">
+          <div class="service">
+            <i class="fa-solid fa-ship"></i>
+            <h3 class="service-heading">Cruzeiros
+            </h3>
+            <p class="service-paragraph">Diferentes tipos de cruzeiro pelo mundo</p>
+          </div>
+          <div class="services">
+            <div class="service">
+              <i class="fa-solid fa-hotel"></i>
+              <h3 class="service-heading">Hoteis
+              </h3>
+              <p class="service-paragraph"> Hoteis preparados para a sua estadia</p>
+            </div>
+          </div>
+    </section>
+    <!-- Fim da Secção1 -->
+    <!-- End of header -->
+    <!--Sugestoes-->
+    <section id="topico2" class="sugestoes">
+      <div class="img-container">
+        <img src="maldives-tropical-beach-resort-wallpaper.jpg" class="bg-img">
+        </img>
+      </div>
+      <div class="sugestoes-heading-1">
+        <h1 class="sugestoes-title">Sugestoes</h1>
+        <div class="story-bg">
+          <div class="story">
+            <img src="images/Malta.png" alt="Customer_image" class="story-image">
+            <div class="story-text">
+              <h1 class="story-heading">Malta</h1>
+              <p class="story-paragraph"> Em seus pouco mais de 300 quilômetros quadrados, você encontrará
+                praias, festa e uma atmosfera jovem, templos megalíticos, cavernas marinhas e muitas
+                outras atrações turísticas.</p>
+            </div>
           </div>
         </div>
-        <div class="package-column">
-          <div class="package-wrapper">
-            <h2 class="package-title">Pacotes</h2>
-            <img loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/146d5dfbced849f191739da73e4585789f3f4559a16ea9da7affef5b7aaad0da?apiKey=10427ddf605b4aa18280f97637732781&"
-              alt="Pacotes" class="package-img" />
-          </div>
-        </div>
-        <div class="cruise-column">
-          <div class="cruise-wrapper">
-            <h2 class="cruise-title">Cruzeiros</h2>
-            <img loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/88de5391361b3e2e03217d724c6d89dd9ec1a3ad46bb60675981ccdb55615459?apiKey=10427ddf605b4aa18280f97637732781&"
-              alt="Cruzeiros" class="cruise-img" />
+        <div class="story-bg">
+          <div class="story">
+            <img src="images/Açores.png" alt="Customer_image" class="story-image">
+            <div class="story-text">
+              <h1 class="story-heading">Açores - Portugal</h1>
+              <p class="story-paragraph"> Os Açores são famosos por suas paisagens vulcânicas
+                espetaculares, que incluem crateras, lagoas, montanhas, falésias e planícies costeiras.
+                As ilhas são cobertas por uma vegetação exuberante e oferecem uma diversidade única de
+                flora e fauna. Hortênsias azuis são comuns e adicionam um toque de cor às paisagens
+                verdes.</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
-    <footer class="footer">
-      <div class="footer-container">
-        <div class="logo">Logo</div>
-        <div class="footer-desc">
-          <div class="footer-copyright">
-            Copyright 2024 Pior agência de viagens do mundo.
+    <!-- Fim de Sugestoes-->
+    <!-- Produtos Pacotes -->
+    <section id="topico3" class="products">
+      <div class="products-topico">
+        <h1 class="products-heading">Pacotes</h1>
+        <button class="products-button1"><a class="a-button1" href="#"> Mais Pacotes</a></button>
+      </div>
+      <div class="card-wrapper">
+        <div class="card">
+          <div class="front-side">
+            <img src="maldives-tropical-beach-resort-wallpaper.jpg" alt="#" class="card-image">
+            <h1 class="card-name"> Pacote - Malta + 5 dias</h1>
+            <ul class="card-list">
+              <li class="card-list-item">information about it</li>
+              <li class="card-list-item">information about it</li>
+              <li class="card-list-item">information about it</li>
+              <li class="card-list-item">information about it</li>
+            </ul>
+            <button class="navigation-button">
+              price &gt;&gt;
+            </button>
           </div>
-          <div class="footer-links">
-            <a href="#" class="link">Privacy Policy</a>
-            <a href="#" class="link">Terms & Conditions</a>
-            <a href="#" class="link">Cookie Policy</a>
-            <a href="#" class="link">Contact</a>
+          <div class="back-side center">
+            <button class="navigation-button">
+              &lt;&lt; back
+            </button>
+            <h3 class="package-price">$650
+            </h3>
+            <button class="card-button">Reserve agora</button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="front-side">
+            <img src="maldives-tropical-beach-resort-wallpaper.jpg" alt="#" class="card-image">
+            <h1 class="card-name"> Pacote - Malta + 5 dias</h1>
+            <ul class="card-list">
+              <li class="card-list-item">information about it</li>
+              <li class="card-list-item">information about it</li>
+              <li class="card-list-item">information about it</li>
+              <li class="card-list-item">information about it</li>
+            </ul>
+            <button class="navigation-button">
+              price &gt;&gt;
+            </button>
+          </div>
+          <div class="back-side center">
+            <button class="navigation-button">
+              &lt;&lt; back
+            </button>
+            <h3 class="package-price">$650
+            </h3>
+            <button class="card-button">Reserve agora</button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="front-side">
+            <img src="maldives-tropical-beach-resort-wallpaper.jpg" alt="#" class="card-image">
+            <h1 class="card-name"> Pacote - Malta + 5 dias</h1>
+            <ul class="card-list">
+              <li class="card-list-item">information about it</li>
+              <li class="card-list-item">information about it</li>
+              <li class="card-list-item">information about it</li>
+              <li class="card-list-item">information about it</li>
+            </ul>
+            <button class="navigation-button">
+              price &gt;&gt;
+            </button>
+          </div>
+          <div class="back-side center">
+            <button class="navigation-button">
+              &lt;&lt; back
+            </button>
+            <h3 class="package-price">$650
+            </h3>
+            <button class="card-button">Reserve agora</button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="front-side">
+            <img src="maldives-tropical-beach-resort-wallpaper.jpg" alt="#" class="card-image">
+            <h1 class="card-name"> Pacote - Malta + 5 dias</h1>
+            <ul class="card-list">
+              <li class="card-list-item">information about it</li>
+              <li class="card-list-item">information about it</li>
+              <li class="card-list-item">information about it</li>
+              <li class="card-list-item">information about it</li>
+            </ul>
+            <button class="navigation-button">
+              price &gt;&gt;
+            </button>
+          </div>
+          <div class="back-side center">
+            <button class="navigation-button">
+              &lt;&lt; back
+            </button>
+            <h3 class="package-price">$650
+            </h3>
+            <button class="card-button">Reserve agora</button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="front-side">
+            <img src="cruzeiro_3.jpg" alt="#" class="card-image">
+            <h1 class="card-name">Pacote - Açores + 3 dias </h1>
+            <ul class="card-list">
+              <li class="card-list-item">information about it</li>
+              <li class="card-list-item">information about it</li>
+              <li class="card-list-item">information about it</li>
+              <li class="card-list-item">information about it</li>
+            </ul>
+            <button class="navigation-button">
+              price &gt;&gt;
+            </button>
+          </div>
+          <div class="back-side center">
+            <button class="navigation-button">
+              &lt;&lt; back
+            </button>
+            <h3 class="package-price">$300
+            </h3>
+            <button class="card-button">Reserve agora</button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="front-side">
+            <img src="Cruzeiro.jpg" alt="#" class="card-image">
+            <h1 class="card-name"> Pacote - Madrid + 7 dias </h1>
+            <ul class="card-list">
+              <li class="card-list-item">information about it</li>
+              <li class="card-list-item">information about it</li>
+              <li class="card-list-item">information about it</li>
+              <li class="card-list-item">information about it</li>
+            </ul>
+            <button class="navigation-button">
+              price &gt;&gt;
+            </button>
+          </div>
+          <div class="back-side center">
+            <button class="navigation-button">
+              &lt;&lt; back
+            </button>
+            <h3 class="package-price">$450
+            </h3>
+            <button class="card-button">Reserve agora</button>
           </div>
         </div>
       </div>
+    </section>
+    <!-- Fim Produtos Pacotes-->
+
+    <!-- Produtos Cruzeiros-->
+    <section id="topico4" class="products">
+      <div class="products-topico">
+        <h1 class="products-heading">Cruzeiros</h1>
+        <button class="products-button1"><a class="a-button1" href="#"> Mais Cruzeiros</a></button>
+      </div>
+      <div class="card-wrapper">
+        <div class="card">
+          <div class="front-side">
+            <img src="maldives-tropical-beach-resort-wallpaper.jpg" alt="#" class="card-image">
+            <h1 class="card-name"> Cruzeiro - Mediterrâneo</h1>
+            <ul class="card-list">
+              <li class="card-list-item"> Percurso: </li>
+              <li class="card-list-item"> Duração: </li>
+              <li class="card-list-item"> Data e hora de partida: </li>
+              <li class="card-list-item"> Lugares disponíveis: </li>
+            </ul>
+            <button class="navigation-button">
+              price &gt;&gt;
+            </button>
+          </div>
+          <div class="back-side center">
+            <button class="navigation-button">
+              &lt;&lt; back
+            </button>
+            <h3 class="package-price">$399
+            </h3>
+            <button class="card-button">Buy Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="front-side">
+            <img src="cruzeiro_3.jpg" alt="#" class="card-image">
+            <h1 class="card-name">Cruzeiro - Caraíbas </h1>
+            <ul class="card-list">
+              <li class="card-list-item"> Percurso: </li>
+              <li class="card-list-item"> Duração: </li>
+              <li class="card-list-item"> Data e hora prevista de partida: </li>
+              <li class="card-list-item"> Lugares disponíveis: </li>
+            </ul>
+            <button class="navigation-button">
+              price &gt;&gt;
+            </button>
+          </div>
+          <div class="back-side center">
+            <button class="navigation-button">
+              &lt;&lt; back
+            </button>
+            <h3 class="package-price">$399
+            </h3>
+            <button class="card-button">Reserve agora</button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="front-side">
+            <img src="Cruzeiro.jpg" alt="#" class="card-image">
+            <h1 class="card-name"> Cruzeiro - Pacífico </h1>
+            <ul class="card-list">
+              <li class="card-list-item"> Percurso: </li>
+              <li class="card-list-item"> Duração: </li>
+              <li class="card-list-item"> Data e hora prevista de entrada: </li>
+              <li class="card-list-item"> Lugares disponíveis: </li>
+            </ul>
+            <button class="navigation-button">
+              price &gt;&gt;
+            </button>
+          </div>
+          <div class="back-side center">
+            <button class="navigation-button">
+              &lt;&lt; back
+            </button>
+            <h3 class="package-price">$399
+            </h3>
+            <button class="card-button">Reserve agora</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Fim Produto Cruzeiros-->
+
+    <!-- Produtos Hoteis-->
+    <section id="topico5" class="products">
+      <div class="products-topico">
+        <h1 class="products-heading">Hoteis</h1>
+        <button class="products-button1"><a class="a-button1" href="#"> Mais Hoteis</a></button>
+      </div>
+      <div class="card-wrapper">
+        <div class="card">
+          <div class="front-side">
+            <img src="maldives-tropical-beach-resort-wallpaper.jpg" alt="#" class="card-image">
+            <h1 class="card-name"> Hotel - Madrid </h1>
+            <ul class="card-list">
+              <li class="card-list-item"> Estadia: </li>
+              <li class="card-list-item"> Morada: </li>
+              <li class="card-list-item"> Pensão: </li>
+              <li class="card-list-item"> Vagas: </li>
+            </ul>
+            <button class="navigation-button">
+              price &gt;&gt;
+            </button>
+          </div>
+          <div class="back-side center">
+            <button class="navigation-button">
+              &lt;&lt; back
+            </button>
+            <h3 class="package-price">$399
+            </h3>
+            <button class="card-button">Buy Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="front-side">
+            <img src="cruzeiro_3.jpg" alt="#" class="card-image">
+            <h1 class="card-name">Cruzeiro Mediterraneo de 14 dias </h1>
+            <ul class="card-list">
+              <li class="card-list-item">information about it</li>
+              <li class="card-list-item">information about it</li>
+              <li class="card-list-item">information about it</li>
+              <li class="card-list-item">information about it</li>
+            </ul>
+            <button class="navigation-button">
+              price &gt;&gt;
+            </button>
+          </div>
+          <div class="back-side center">
+            <button class="navigation-button">
+              &lt;&lt; back
+            </button>
+            <h3 class="package-price">$399
+            </h3>
+            <button class="card-button">Buy Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="front-side">
+            <img src="Cruzeiro.jpg" alt="#" class="card-image">
+            <h1 class="card-name"> Hotel Dubai - 7 dias </h1>
+            <ul class="card-list">
+              <li class="card-list-item">information about it</li>
+              <li class="card-list-item">information about it</li>
+              <li class="card-list-item">information about it</li>
+              <li class="card-list-item">information about it</li>
+            </ul>
+            <button class="navigation-button">
+              price &gt;&gt;
+            </button>
+          </div>
+          <div class="back-side center">
+            <button class="navigation-button">
+              &lt;&lt; back
+            </button>
+            <h3 class="package-price">$399
+            </h3>
+            <button class="card-button">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Fim produtos Hoteis -->
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-list">
+        <a href="#topico1" class="footer-link">Home</a>
+        <a href="#topico2" class="footer-link">Sugestões</a>
+        <a href="#topico3" class="footer-link">Pacotes</a>
+        <a href="#topico4" class="footer-link">Cruzeiros</a>
+        <a href="#topico5" class="footer-link">Hotéis</a>
+        <a href="" class="footer-link">About Us</a>
+      </div>
+      <p class="footer-paragraph">
+        Copyright &copy; PAVPT All Rights Reserved
+      </p>
     </footer>
-  </section>
-</main>
+    <!-- End of Footer -->
+  </div>
+  <script src=" main_script.js">
+  </script>
+</body>
+
+</html>
