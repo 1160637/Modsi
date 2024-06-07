@@ -3,27 +3,47 @@
     <div class="div-2">
         <div class="div-3">
             <div class="div-4">Criar uma Conta</div>
-            <div class="div-5">Nome Completo</div>
-            <div class="div-6">Nome</div>
-            <div class="div-7">Data de Nascimento</div>
-            <div class="div-8">DD/MM/AA</div>
-            <div class="div-9">E-mail</div>
-            <div class="div-10">example@example.com</div>
-            <div class="div-11">Telemóvel</div>
-            <div class="div-12">+351 9XXXXXXXX</div>
-            <div class="div-13">Palavra-Passe</div>
-            <div class="div-14">
-                <img loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/e5624d98f170ef8b8f94d8675c4e17dda85ddf549fdcc8a81400620156da64f7?"
-                    class="img-2" />
-            </div>
-            <div class="div-15">Confirmar Palavra-Passe</div>
-            <div class="div-16">
-                <img loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/cea8956819f3a0dd0411d85277e13a4091ef92652099edfdd4dc1b54485a4267?"
-                    class="img-3" />
-            </div>
-            <div class="div-17">Criar Conta</div>
+            <form action="./criar_conta.php" method="post">
+                <div class="div-5">Nome Completo</div>
+                <div class="div-6">
+                    <label for="name_id">Nome</label>
+                    <input type="text" class="div-6" id="name_id" name="name_id" />
+                </div>
+                <div class="div-7">Data de Nascimento</div>
+                <div class="div-8">
+                    <label for="Nascimento"> example: 34</label>
+                    <input type="text" class="div-8" id="Nascimento" name="Nascimento">
+                </div>
+                <div class="div-9">E-mail</div>
+                <div class="div-10">
+                    <label for="email"></label>
+                    <input type="email" class="div-10" id="email" name="email">
+                </div>
+                <div class="div-11">Telemóvel</div>
+                <div class="div-12">
+                    <label for="telemovel"></label>
+                    <input type="text" class="div-12" id="telemovel" name="telemovel">
+                </div>
+                <div class="div-13">Palavra-Passe</div>
+                <div class="div-14">
+                    <label for="passwd"></label>
+                    <input type="password" class="div-14" id="passwd" name="passwd">
+                    <img loading="lazy"
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/e5624d98f170ef8b8f94d8675c4e17dda85ddf549fdcc8a81400620156da64f7?"
+                        class="img-2" />
+                </div>
+                <div class="div-15">Confirmar Palavra-Passe</div>
+                <div class="div-16">
+                    <label for="conf_passwd"></label>
+                    <input type="password" class="div-14" id="conf_passwd" name="conf_passwd">
+                    <img loading="lazy"
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/cea8956819f3a0dd0411d85277e13a4091ef92652099edfdd4dc1b54485a4267?"
+                        class="img-3" />
+                </div>
+                <button type="submit" class="Arrow">
+                <div class="div-17"> Criar Conta </div>
+                </button>
+        </form>
         </div>
         <div class="div-18">
             <div class="div-19">
