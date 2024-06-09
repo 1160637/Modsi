@@ -8,15 +8,23 @@
                     class="img-2" />
                 <div class="div-5">LOG-IN</div>
             </div>
-            <div class="div-6">E-mail</div>
-            <div class="div-7"></div>
-            <div class="div-8">Palavra-Passe</div>
-            <div class="div-9">
-                <img loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/8b96005603d890f6d3799c6b6ca5c6d9b407e22e1530afd829a826513f85d235?"
-                    class="img-3" />
-            </div>
+                <form action="./log_in.php" method="POST">
+                <div class="div-6">E-mail</div>
+                    <label for="E-mail"></label>
+                    <input type="email" class="div-7" id="email" name="email">
+                <div class="div-8">Palavra-Passe</div>
+                    <label for="password"></label>
+                    <input type="password" class="div-9" id="password" name="password">
+                    <!-- <img loading="lazy"
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/8b96005603d890f6d3799c6b6ca5c6d9b407e22e1530afd829a826513f85d235?"
+                        class="img-3" /> -->
+                </div>
+                <button type="submit" class="Arrow">
+                <div class="div-21"> Log In </div>
+                </button>
+            </form>
         </div>
+        <a href="../Create_Account/index.html" target="_blank">
         <div class="div-10">
             Ainda não tem conta?
             <span style="
@@ -27,6 +35,7 @@
                 Crie uma agora.
             </span>
         </div>
+        </a>
         <div class="div-11">
             <div class="div-12">
                 <div class="div-13">Logo</div>
@@ -47,7 +56,7 @@
 </div>
 <style>
     .div {
-        disply: flex;
+        display: flex;
         flex-direction: column;
         box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
         overflow: hidden;
@@ -313,5 +322,22 @@
     .div-20 {
         font-feature-settings: "calt" off;
         font-family: Inter, sans-serif;
+    }
+
+    .div-21 {
+        font-feature-settings: "calt" off;
+        justify-content: center;
+        border-radius: 6px;
+        box-shadow: 0px 0px 4px 0px #3050c0;
+        border-color: rgba(30, 30, 30, 1);
+        border-style: solid;
+        border-width: 2px;
+        background-color: rgba(48, 80, 192, 0.5);
+        align-self: center;
+        margin-top: 20px;
+        color: #fff;
+        letter-spacing: -0.16px;
+        padding: 12px 16px;
+        font: 700 16px/150% Inter, sans-serif;
     }
 </style>
