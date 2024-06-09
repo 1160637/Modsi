@@ -1,4 +1,5 @@
 <?php
+    session_start();
     $name = $_POST['name_id'];
     $nascimento = $_POST['Nascimento'];
     $email = $_POST['email'];
@@ -20,7 +21,10 @@
     $query = $conn->prepare("INSERT INTO Clientes (Nome, Idade, Telemovel, Email, password) VALUES (?, ?, ?, ?, ?)");
     $query->bind_param("sssss", $name, $nascimento, $telemovel, $email, $password);
     if ($query->execute()) {
-        echo "New record created successfully";
+        // echo "New record created successfully";
+        $_SESSION['logged'] = true;
+        $_SESSION['email'] = $email;
+        echo "<script>window.location.href = '../main.php'</script>";
     } 
     else {
         echo "Error: " . $query->error;
