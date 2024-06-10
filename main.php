@@ -68,7 +68,7 @@
               session_start();
               $role = $_SESSION['role'];
               $logging = $_SESSION['logged'];
-              if($role == 'admin' || $role == 'gestor de reservas' || $role == 'gestor financeiro' ){
+              if($role == 'admin' || $role == 'gestor de reservas' || $role == 'diretor' ){
             ?>
               <li class="nav-list-item dropdown-hover">
               <a href="#" class="nav-list-link">Gestão<i class="fas fa-chevron-down"></i></a>
@@ -78,24 +78,42 @@
                     session_start();
                     if ($role == 'gestor de reservas'){
                   ?>
-                  <a href="reservas.html" class="nav-dropdown-link-1">Validar Reservas</a>
+                  <a href="reservas.html" class="nav-dropdown-link-1">Gerir Reservas</a>
                 </li>
                 <li class="nav-dropdown-item">
-                  <a href="dadospessoais.html" class="nav-dropdown-link-1">Inserir Viagens</a>
+                  <a href="#" class="nav-dropdown-link-1">Gerir Pensões</a>
+                </li>
+                <li class="nav-dropdown-item">
+                  <a href="#" class="nav-dropdown-link-1">Gerir Vagas</a>
                 </li>
                 <?php
                     }
                     elseif($role == 'admin'){
                 ?>
                 <li class="nav-dropdown-item">
-                  <a href="dadospessoais.html" class="nav-dropdown-link-1">Alterar Roles</a>
+                  <a href="#" class="nav-dropdown-link-1">Alterar Roles</a>
                 </li>
                 <?php
                   }
-                  elseif($role == 'gestor financeiro'){
+                  elseif($role == 'diretor'){
                 ?>
                 <li class="nav-dropdown-item">
-                  <a href="dadospessoais.html" class="nav-dropdown-link-1">Alterar Preços</a>
+                  <a href="#" class="nav-dropdown-link-1">Gerir Vagas</a>
+                </li>
+                <li class="nav-dropdown-item">
+                  <a href="#" class="nav-dropdown-link-1">Gerir Voos</a>
+                </li>
+                <li class="nav-dropdown-item">
+                  <a href="#" class="nav-dropdown-link-1">Gerir Cruzeiros</a>
+                </li>
+                <li class="nav-dropdown-item">
+                  <a href="#" class="nav-dropdown-link-1">Hotéis</a>
+                </li>
+                <li class="nav-dropdown-item">
+                  <a href="#" class="nav-dropdown-link-1">Finanças</a>
+                </li>
+                <li class="nav-dropdown-item">
+                  <a href="#" class="nav-dropdown-link-1">Funcionários</a>
                 </li>
                 <?php
                   }
