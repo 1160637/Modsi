@@ -63,22 +63,43 @@
                     pessoais</a>
                 </li>
               </ul>
-</li>
+            </li>
             <?php
               session_start();
               $role = $_SESSION['role'];
               $logging = $_SESSION['logged'];
-              if($role == 'admin' || $role == 'gestor de reservas'){
+              if($role == 'admin' || $role == 'gestor de reservas' || $role == 'gestor financeiro' ){
             ?>
               <li class="nav-list-item dropdown-hover">
               <a href="#" class="nav-list-link">Gestão<i class="fas fa-chevron-down"></i></a>
               <ul class="nav-dropdown">
                 <li class=" nav-dropdown-item">
+                  <?php
+                    session_start();
+                    if ($role == 'gestor de reservas'){
+                  ?>
                   <a href="reservas.html" class="nav-dropdown-link-1">Validar Reservas</a>
                 </li>
                 <li class="nav-dropdown-item">
                   <a href="dadospessoais.html" class="nav-dropdown-link-1">Inserir Viagens</a>
                 </li>
+                <?php
+                    }
+                    elseif($role == 'admin'){
+                ?>
+                <li class="nav-dropdown-item">
+                  <a href="dadospessoais.html" class="nav-dropdown-link-1">Alterar Roles</a>
+                </li>
+                <?php
+                  }
+                  elseif($role == 'gestor financeiro'){
+                ?>
+                <li class="nav-dropdown-item">
+                  <a href="dadospessoais.html" class="nav-dropdown-link-1">Alterar Preços</a>
+                </li>
+                <?php
+                  }
+                ?>
               </ul>
               </li>
             <?php
