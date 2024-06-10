@@ -1,77 +1,125 @@
 <?php
-
-function LigaBD()
-{
-    $conn= new mysqli("ave.dee.isep.ipp.pt", "1160637", "admin", "1160637");
-
-    if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-    }
-    return $conn;
-}
-
-function LinkOrdem($ordcamp, $filtro)
-{
-    $ordem = $ordcamp . "&amp;filtro=$filtro";
-    $txt = "<a href='?ordem=$ordem' class='titcoluna'> $ordcamp </a>";
-
-    return $txt;
-}
-    
-function ListaClientes($conn)
-{
-    $query = "SELECT * FROM Produtos";
-
-    $filtro = $_SESSION['filtro'];
-
-    if ($_SESSION['filtro']!="")
-        $query.=" WHERE CONCAT(Sku,Marca,Modelo) LIKE '%".$_SESSION['filtro']."%'";
-    
-    if ($_SESSION['ordem']!="") $query .= " ORDER BY " . $_SESSION['ordem'];
-
-
-    print "<from method=GET action=lista.php>";
-    print " Filtro:";
-    // print " <input name='filtro' value='".$_GET['filtro']."' size=8>";
-    print " <input name='filtro' value='".$_SESSION['filtro']."' size=8>";
-    // print " <input type=hidden name='ordem' value='$ordem'>";
-    print " <input type=submit value='Search'>";
-    print "</form>";
-
-    $result = $conn->query($query);
-    if($result->num_rows > 0)
+    function getPacotePrice($Destino)
     {
-        print " <table> \n";
+        session_start();
+        $conn= new mysqli("ave.dee.isep.ipp.pt", "1160637", "admin", "1160637");
+        if ($conn->connect_error) {
+          die("Connection failed: " . $conn->connect_error);
+        }
 
+        if ($Destino == 'Malta'){
+            $Destino = 5;
+        }
+
+        $query = $conn->prepare("SELECT Preço FROM Pacotes WHERE Destino = ?");
+        if ($query === false) {
+            die("Prepare failed: " . $conn->error);
+        }
+        $query->bind_param("i", $Destino);
+        $query->execute();                
+        $result = $query->get_result();
         $row = $result->fetch_assoc();
-        print " <tr> \n";
-        foreach ( $row as $name => $val )
-        print " <th>". LinkOrdem($name, $filtro) . "</th>\n";
-        print " </tr> \n";
-        $result->data_seek(0);
-        
-        while ( $row = $result->fetch_row() ) {
-            print " <tr> \n";
-            foreach ( $row as $val )
-            print " <td>$val</td> \n";
-            print " <td> <a href='mostra.php?sku=$row[0]'> +info </a> </td>\n";
-            print " </tr> \n";
-        }//while
+        $preço = $row['Preço'];
 
-        print " </table> \n";
-
+        $query->close();
+        $conn->close();
+        return $preço;
     }
+?>
+<?php
+    function getPartida($Destino)
+    {
+        session_start();
+        $conn= new mysqli("ave.dee.isep.ipp.pt", "1160637", "admin", "1160637");
+        if ($conn->connect_error) {
+          die("Connection failed: " . $conn->connect_error);
+        }
 
-    else
-    echo "0 results";
-    
-    $url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+        if ($Destino == 'Malta'){
+            $Destino = 5;
+        }
 
+        $query = $conn->prepare("SELECT Partida FROM Pacotes WHERE Destino = ?");
+        if ($query === false) {
+            die("Prepare failed: " . $conn->error);
+        }
+        $query->bind_param("i", $Destino);
+        $query->execute();                
+        $result = $query->get_result();
+        $row = $result->fetch_assoc();
+        $partida = $row['Partida'];
 
-    print_r($_SESSION);
-    echo $url;  
-    print"\n";
+        if($partida == 1){
+            $partida = 'Portugal';
+        }
+        elseif($partida == 2){
+            $partida = 'Espanha';
+        }
+        elseif($partida == 3){
+            $partida = 'Itália';
+        }
+        elseif($partida == 4){
+            $partida = 'França';
+        }
+        elseif($partida == 5){
+            $partida = 'Malta';
+        }
 
-    mysqli_close($conn);
-   
-}
+        $query->close();
+        $conn->close();
+        return $partida;
+    }
+?>
+
+<?php
+    function alterarVagasHoteis($Destino, $pensão, $num_reservas)
+    {
+        session_start();
+        $conn= new mysqli("ave.dee.isep.ipp.pt", "1160637", "admin", "1160637");
+        if ($conn->connect_error) {
+          die("Connection failed: " . $conn->connect_error);
+        }
+
+        if($Destino == 1){
+            $Destino = 'Portugal';
+        }
+        elseif($Destino == 2){
+            $Destino = 'Espanha';
+        }
+        elseif($Destino == 3){
+            $Destino = 'Itália';
+        }
+        elseif($Destino == 4){
+            $Destino = 'França';
+        }
+        elseif($Destino == 5){
+            $Destino = 'Malta';
+        }
+
+        $query = $conn->prepare("SELECT Vagas FROM Hoteis WHERE Pensão = ? and hoteis_id = ?");
+        if ($query === false) {
+            die("Prepare failed: " . $conn->error);
+        }
+        $query->bind_param("si", $pensão, $Destino);
+        $query->execute();                
+        $result = $query->get_result();
+        $row = $result->fetch_assoc();
+        $vagas = $row['Vagas'];
+        if($vagas < $num_reservas){
+            echo "<script>alert('Não há vagas suficientes!'); window.location.href = '../main.php'</script>";
+        }
+        else{
+            $query = $conn->prepare("UPDATE Hoteis SET Vagas= ? WHERE Pensão = ? AND  hoteis_id = ? ");
+            if ($query === false) {
+                die("Prepare failed: " . $conn->error);
+            }
+                $new_vagas = $vagas - $num_reservas;
+                $query->bind_param("isi",$new_vagas, $pensão, $Destino);
+                $query->execute(); 
+        }
+
+        $query->close();
+        $conn->close();
+    }
+?>
+
