@@ -193,7 +193,13 @@
             <img src="images/maldives-tropical-beach-resort-wallpaper.jpg" alt="#" class="card-image">
             <h1 class="card-name"> Pacote - Malta + 5 dias</h1>
             <ul class="card-list">
-              <li class="card-list-item">information about it</li>
+              <li class="card-list-item"> Partida From Portugal
+              <?php
+                // include "database_tools/funcs.php";
+                // $partida = getPartida('Malta');
+                // echo "Partida from " . $partida;
+              ?>
+              </li>
               <li class="card-list-item">information about it</li>
               <li class="card-list-item">information about it</li>
               <li class="card-list-item">information about it</li>
@@ -206,7 +212,12 @@
             <button class="navigation-button">
               &lt;&lt; back
             </button>
-            <h3 class="package-price">$650
+            <h3 class="package-price">
+              <?php
+                include "database_tools/funcs.php";
+                $price = getPacotePrice('Malta');
+                echo $price ."€";
+              ?>
             </h3>
             <button class="card-button">Reserve agora</button>
           </div>
