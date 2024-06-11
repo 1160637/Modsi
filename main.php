@@ -58,9 +58,8 @@
                     efetuadas</a>
                 </li>
                 <li class="nav-dropdown-item">
-                  <a href="dadospessoais.html" class="nav-dropdown-link-1">Dados Pessoais</a>
-                  <a href="dadospessoais.html" class="nav-dropdown-link-2">Lista dos dados
-                    pessoais</a>
+                  <a href="Dados_pessoas/dados_pessoais.php" class="nav-dropdown-link-1">Dados Pessoais</a>
+                  <a href="Dados_pessoas/dados_pessoais.php" class="nav-dropdown-link-2">Lista dos dados pessoais</a>
                 </li>
               </ul>
             </li>
@@ -98,22 +97,22 @@
                   elseif($role == 'diretor'){
                 ?>
                 <li class="nav-dropdown-item">
-                  <a href="#" class="nav-dropdown-link-1">Gerir Vagas</a>
+                  <a href="./Diretor_Empresa/diretor_empresa.html" class="nav-dropdown-link-1">Gerir Vagas</a>
                 </li>
                 <li class="nav-dropdown-item">
-                  <a href="#" class="nav-dropdown-link-1">Gerir Voos</a>
+                  <a href="./Diretor_Empresa/diretor_empresa.html" class="nav-dropdown-link-1">Gerir Voos</a>
                 </li>
                 <li class="nav-dropdown-item">
-                  <a href="#" class="nav-dropdown-link-1">Gerir Cruzeiros</a>
+                  <a href="./Diretor_Empresa/diretor_empresa.html" class="nav-dropdown-link-1">Gerir Cruzeiros</a>
                 </li>
                 <li class="nav-dropdown-item">
-                  <a href="#" class="nav-dropdown-link-1">Hotéis</a>
+                  <a href="./Diretor_Empresa/diretor_empresa.html" class="nav-dropdown-link-1">Hotéis</a>
                 </li>
                 <li class="nav-dropdown-item">
-                  <a href="#" class="nav-dropdown-link-1">Finanças</a>
+                  <a href="./Diretor_Empresa/diretor_empresa.html" class="nav-dropdown-link-1">Finanças</a>
                 </li>
                 <li class="nav-dropdown-item">
-                  <a href="#" class="nav-dropdown-link-1">Funcionários</a>
+                  <a href="./Diretor_Empresa/diretor_empresa.html" class="nav-dropdown-link-1">Funcionários</a>
                 </li>
                 <?php
                   }
@@ -232,13 +231,7 @@
             <img src="images/maldives-tropical-beach-resort-wallpaper.jpg" alt="#" class="card-image">
             <h1 class="card-name"> Pacote - Malta + 5 dias</h1>
             <ul class="card-list">
-              <li class="card-list-item"> Partida From Portugal
-              <?php
-                // include "database_tools/funcs.php";
-                // $partida = getPartida('Malta');
-                // echo "Partida from " . $partida;
-              ?>
-              </li>
+              <li class="card-list-item"> Partida From Portugal</li>
               <li class="card-list-item">information about it</li>
               <li class="card-list-item">information about it</li>
               <li class="card-list-item">information about it</li>
@@ -279,7 +272,7 @@
             <button class="navigation-button">
               &lt;&lt; back
             </button>
-            <h3 class="package-price">$650
+            <h3 class="package-price">650€
             </h3>
             <button class="card-button">Reserve agora</button>
           </div>
@@ -302,7 +295,7 @@
             <button class="navigation-button">
               &lt;&lt; back
             </button>
-            <h3 class="package-price">$650
+            <h3 class="package-price">650€
             </h3>
             <button class="card-button">Reserve agora</button>
           </div>
@@ -325,7 +318,7 @@
             <button class="navigation-button">
               &lt;&lt; back
             </button>
-            <h3 class="package-price">$650
+            <h3 class="package-price">650€
             </h3>
             <button class="card-button">Reserve agora</button>
           </div>
@@ -348,7 +341,7 @@
             <button class="navigation-button">
               &lt;&lt; back
             </button>
-            <h3 class="package-price">$300
+            <h3 class="package-price">300€
             </h3>
             <button class="card-button">Reserve agora</button>
           </div>
@@ -371,7 +364,7 @@
             <button class="navigation-button">
               &lt;&lt; back
             </button>
-            <h3 class="package-price">$450
+            <h3 class="package-price">450€
             </h3>
             <button class="card-button">Reserve agora</button>
           </div>
