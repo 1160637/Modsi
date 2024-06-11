@@ -92,7 +92,7 @@
                     elseif($role == 'admin'){
                 ?>
                 <li class="nav-dropdown-item">
-                  <a href="#" class="nav-dropdown-link-1">Alterar Roles</a>
+                  <a href="./Admin/admin.html" class="nav-dropdown-link-1">Alterar Roles</a>
                 </li>
                 <?php
                   }
