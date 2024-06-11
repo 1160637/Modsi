@@ -78,7 +78,7 @@
                     session_start();
                     if ($role == 'gestor de reservas'){
                   ?>
-                  <a href="reservas.html" class="nav-dropdown-link-1">Gerir Reservas</a>
+                  <a href="./Reservas/gestor_reservas.php" class="nav-dropdown-link-1">Gerir Reservas</a>
                 </li>
                 <li class="nav-dropdown-item">
                   <a href="#" class="nav-dropdown-link-1">Gerir Pensões</a>
