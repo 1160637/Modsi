@@ -58,9 +58,8 @@
                     efetuadas</a>
                 </li>
                 <li class="nav-dropdown-item">
-                  <a href="dadospessoais.html" class="nav-dropdown-link-1">Dados Pessoais</a>
-                  <a href="dadospessoais.html" class="nav-dropdown-link-2">Lista dos dados
-                    pessoais</a>
+                  <a href="Dados_pessoas/dados_pessoais.php" class="nav-dropdown-link-1">Dados Pessoais</a>
+                  <a href="Dados_pessoas/dados_pessoais.php" class="nav-dropdown-link-2">Lista dos dados pessoais</a>
                 </li>
               </ul>
             </li>
