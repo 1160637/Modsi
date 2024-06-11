@@ -121,5 +121,119 @@
         $query->close();
         $conn->close();
     }
+
+    function getClientNameFromId($id){
+        session_start();
+        $conn= new mysqli("ave.dee.isep.ipp.pt", "1160637", "admin", "1160637");
+        if ($conn->connect_error) {
+          die("Connection failed: " . $conn->connect_error);
+        }
+
+        $query = $conn->prepare("SELECT Nome FROM Clientes WHERE client_id = ?");
+        if ($query === false) {
+            die("Prepare failed: " . $conn->error);
+        }
+        
+        $query->bind_param("i", $id);
+        $query->execute();                
+        $result = $query->get_result();
+        $row = $result->fetch_assoc();
+        $name = $row['Nome'];
+
+        $query->close();
+        $conn->close();
+        return $name;
+    }
+
+    function getHotelNameFromId($id){
+        session_start();
+        $conn= new mysqli("ave.dee.isep.ipp.pt", "1160637", "admin", "1160637");
+        if ($conn->connect_error) {
+          die("Connection failed: " . $conn->connect_error);
+        }
+
+        $query = $conn->prepare("SELECT Nome FROM Hoteis WHERE hoteis_id = ?");
+        if ($query === false) {
+            die("Prepare failed: " . $conn->error);
+        }
+        
+        $query->bind_param("i", $id);
+        $query->execute();                
+        $result = $query->get_result();
+        $row = $result->fetch_assoc();
+        $name = $row['Nome'];
+
+        $query->close();
+        $conn->close();
+        return $name;
+    }
+
+    function getDestionFromId($id){
+        $conn= new mysqli("ave.dee.isep.ipp.pt", "1160637", "admin", "1160637");
+        if ($conn->connect_error) {
+          die("Connection failed: " . $conn->connect_error);
+        }
+
+        $query = $conn->prepare("SELECT Pais FROM Destinos WHERE pais_id = ?");
+        if ($query === false) {
+            die("Prepare failed: " . $conn->error);
+        }
+        
+        $query->bind_param("i", $id);
+        $query->execute();                
+        $result = $query->get_result();
+        $row = $result->fetch_assoc();
+        $Destino = $row['Pais'];
+
+        $query->close();
+        $conn->close();
+        return $Destino;
+    }
+
+    function getPacotesdestinoFromId($id){
+        $conn= new mysqli("ave.dee.isep.ipp.pt", "1160637", "admin", "1160637");
+        if ($conn->connect_error) {
+          die("Connection failed: " . $conn->connect_error);
+        }
+
+        $query = $conn->prepare("SELECT Destino FROM Pacotes WHERE pacotes_id = ?");
+        if ($query === false) {
+            die("Prepare failed: " . $conn->error);
+        }
+        
+        $query->bind_param("i", $id);
+        $query->execute();                
+        $result = $query->get_result();
+        $row = $result->fetch_assoc();
+        $Destino = $row['Destino'];
+
+        $pais = getDestionFromId($Destino);
+
+        $query->close();
+        $conn->close();
+        return $pais;
+    }
+
+    function getPacotesNameFromId($id){
+        $conn= new mysqli("ave.dee.isep.ipp.pt", "1160637", "admin", "1160637");
+        if ($conn->connect_error) {
+          die("Connection failed: " . $conn->connect_error);
+        }
+
+        $query = $conn->prepare("SELECT Name FROM Pacotes WHERE pacotes_id = ?");
+        if ($query === false) {
+            die("Prepare failed: " . $conn->error);
+        }
+        
+        $query->bind_param("i", $id);
+        $query->execute();                
+        $result = $query->get_result();
+        $row = $result->fetch_assoc();
+        $Name = $row['Name'];
+
+        $query->close();
+        $conn->close();
+        return $Name;
+    }
 ?>
 
