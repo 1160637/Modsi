@@ -58,7 +58,7 @@
                                 print " </tr>";
                                 print "</thead>";
                                 $result->data_seek(0);
-                                
+                                // Mostrar dados na tabela através do parse de Ids
                                 print " <tbody>";
                                 while ( $row = $result->fetch_row() ) {
                                     print " <tr>";

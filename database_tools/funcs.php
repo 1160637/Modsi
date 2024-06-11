@@ -1,6 +1,8 @@
+<!-- Ficheiro que implementa diversas funções que vão interagir com a base de dados -->
 <?php
     function getPacotePrice($Destino)
     {
+        // Função recebe um string destino que é submetida na query para receber o preço
         session_start();
         $conn= new mysqli("ave.dee.isep.ipp.pt", "1160637", "admin", "1160637");
         if ($conn->connect_error) {
@@ -28,7 +30,9 @@
 ?>
 <?php
     function getPartida($Destino)
-    {
+    {   
+        // Função que vai buscar a informação da partida relativa a um destino na tabela Pacotes
+        // Tem como objetivo ser usada para imprimir informação
         session_start();
         $conn= new mysqli("ave.dee.isep.ipp.pt", "1160637", "admin", "1160637");
         if ($conn->connect_error) {
@@ -74,6 +78,9 @@
 <?php
     function alterarVagasHoteis($Destino, $pensão, $num_reservas)
     {
+        // Função que permite ao gestor de vagas alterar o número das mesmas
+        // Cada hotel tem parametros diferentes e esses parametros são passados nos argumentos
+        
         session_start();
         $conn= new mysqli("ave.dee.isep.ipp.pt", "1160637", "admin", "1160637");
         if ($conn->connect_error) {

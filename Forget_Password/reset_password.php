@@ -1,8 +1,6 @@
 <?php
 session_start(); // Inicia a sessão
 
-//variable to be pass to others file to check the role of the user
-
 $email = $_POST['email'];
 
 $conn = new mysqli("ave.dee.isep.ipp.pt", "1160637", "admin", "1160637");

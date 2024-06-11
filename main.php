@@ -64,6 +64,8 @@
               </ul>
             </li>
             <?php
+              //PHP implementação da condição que imprime campos de gestão 
+              // baseado na role do utilizador que faz login através da var $_SESSION['role']
               session_start();
               $role = $_SESSION['role'];
               $logging = $_SESSION['logged'];
@@ -125,6 +127,8 @@
           </ul>
           <div class="navbar-buttons">
             <?php
+              //PHP code que retira ou implementa os botões de login e signup
+              // a var $_SESSION['logged'] têm o valor que permite implementar a condição
               session_start();
               $logging = $_SESSION['logged'];
               if($logging == false){
@@ -246,6 +250,7 @@
             </button>
             <h3 class="package-price">
               <?php
+                //Chamada da função que vai buscar o preço do pacote e imprime na pagina
                 include "database_tools/funcs.php";
                 $price = getPacotePrice('Malta');
                 echo $price ."€";
