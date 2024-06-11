@@ -88,38 +88,6 @@
                                 print " </tbody>";
                             ?>
                 </table>
-                <h1 class="titulo2">Gestao dados</h1>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Reserva_ID</th>
-                            <th scope="col">Pacote</th>
-                            <th scope="col">Hoteis</th>
-                            <th scope="col">Cruzeiros</th>
-                            <th scope="col">...</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry the Bird</td>
-                            <td>@twitter</td>
-                            <td>@twitter</td>
-                        </tr>
-                    </tbody>
-                </table>
             </div>
             <!--Fim Tabela -->
     </div>
