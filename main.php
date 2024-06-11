@@ -43,7 +43,7 @@
                     cruzeiro</a>
                 </li>
                 <li class="nav-dropdown-item">
-                  <a href="Hoteis.html" class="nav-dropdown-link-1">Hoteis</a>
+                  <a href="Hoteis.html" class="nav-dropdown-link-1">Hotéis</a>
                   <a href="Hoteis.html" class="nav-dropdown-link-2">A hospedagem ideal para a sua
                     viagem</a>
                 </li>
@@ -156,8 +156,8 @@
       </div>
       <!--Fim da navbar-->
       <div class="header-text">
-        <div class="heading">Pior Agencia de Viagens</div>
-        <p class="header-paragraph">Pacotes de viagens com estadia, Hoteis e Cruzeiros</p>
+        <div class="heading">Pior Agência de Viagens</div>
+        <p class="header-paragraph">Pacotes de viagens com estadia, Hotéis e Cruzeiros</p>
       </div>
     </header>
     <!-- Secção1 -->
@@ -168,7 +168,7 @@
           <i class="fa-solid fa-plane"></i>
           <h3 class="service-heading">Pacotes
           </h3>
-          <p class="service-paragraph">Pacotes de viagens com estadia incluida</p>
+          <p class="service-paragraph">Pacotes de viagens com estadia incluída</p>
         </div>
         <div class="services">
           <div class="service">
@@ -180,9 +180,9 @@
           <div class="services">
             <div class="service">
               <i class="fa-solid fa-hotel"></i>
-              <h3 class="service-heading">Hoteis
+              <h3 class="service-heading">Hotéis
               </h3>
-              <p class="service-paragraph"> Hoteis preparados para a sua estadia</p>
+              <p class="service-paragraph"> Hotéis preparados para a sua estadia</p>
             </div>
           </div>
     </section>
